@@ -1,0 +1,22 @@
+name: test
+on:
+  push:
+    branches:
+      - "main"
+
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Set up Nodes
+      - uses: actions/setup-node@v3
+        with:
+          node-version: "19"
+
+      - name: Run Tests
+      - run: npm test
