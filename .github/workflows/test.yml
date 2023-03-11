@@ -11,12 +11,26 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v3
+      - name: checkout code
+        uses: actions/checkout@v3
 
-      - name: Set up Nodes
-      - uses: actions/setup-node@v3
+      - name: setup Node
+        uses: actions/setup-node@v3
         with:
-          node-version: "19"
+          node-version: 19
 
-      - name: Run Tests
-      - run: npm test
+      - name: install npm
+        run: npm install
+
+      - name: execute ESLint
+        uses: reviewdog/action-eslint@1
+        with:
+          workdir: ./
+          reporter: github-pr-review
+          fail_on_error: true
+
+      - name: run tests
+        uses: ArtiomTr/jest-coverage-report-action@v2.0-rc.6
+        with:
+          working-directory: ./
+          test-script: npm run test
