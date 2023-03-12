@@ -15,10 +15,13 @@
                 }
             },
             "extensions": [
-                "xabikos.JavaScriptSnippets",
-                "oderwat.indent-rainbow",
-                "eamodio.gitlens"
-            ]
+				"xabikos.JavaScriptSnippets",
+				"oderwat.indent-rainbow",
+				"eamodio.gitlens",
+				"wmaurer.vscode-jumpy",
+				"dbaeumer.vscode-eslint",
+				"esbenp.prettier-vscode"
+			]
         }
     }
-  }
+}
